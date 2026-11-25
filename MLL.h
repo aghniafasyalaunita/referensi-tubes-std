@@ -63,6 +63,10 @@ void deleteFirstToko(listToko &L, adrToko &P);
 void deleteLastToko(listToko &L, adrToko &P);
 void deleteAfterToko(listToko &L, adrToko Prec, adrToko &P);
 
+void deleteFirstProduk(listProduk &LP, adrProduk &P);
+void deleteLastProduk(listProduk &LP, adrProduk &P);
+void deleteAfterProduk(listProduk &LP, adrProduk Prec, adrProduk &P);
+
 void lepasToko(listToko &L, adrToko P);
 void lepasProduk(listProduk &LP, adrProduk P);
 
