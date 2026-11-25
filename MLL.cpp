@@ -138,7 +138,7 @@ void deleteLastProduk(listProduk &LP, adrProduk &P){
 void deleteAfterProduk(listProduk &LP, adrProduk Prec, adrProduk &P){
      if (isEmptyProduk(LP)){
         P = nullptr;
-    }else if (L.first == L.last) {
+    }else if (LP.first == LP.last) {
         P = LP.first;
         LP.first = nullptr;
         LP.last = nullptr;
@@ -233,5 +233,44 @@ void printAll(listToko L){
         printToko(T);
         printListProduk(T->lProduk);
         T = T->next;
+    }
+}
+
+
+long long totalNilaiStok(listProduk LP){
+    long long total = 0;
+    adrProduk P = LP.first;
+    while (P != nullptr){
+        total += (long long)P->info.harga * P->info.stok;
+        P = P->next;
+    }
+    return total;
+}
+
+// cari toko dengan total nilai stok tertinggi
+adrToko findTokoStokTertinggi(listToko L, int &maxNilai){
+    adrToko T = L.first;
+    adrToko best = nullptr;
+    maxNilai = 0;
+    while (T != nullptr){
+        int nilai = totalNilaiStok(T->lProduk);
+        if (best == nullptr || nilai > maxNilai){
+            best = T;
+            maxNilai = nilai;
+        }
+        T = T->next;
+    }
+    return best;
+}
+
+void printTokoStokTertinggi(listToko L){
+    int maxNilai;
+    adrToko T = findTokoStokTertinggi(L, maxNilai);
+    if (T == nullptr){
+        cout << "Marketplace masih kosong." << endl;
+    } else {
+        cout << "Toko dengan nilai stok tertinggi:" << endl;
+        printToko(T);
+        cout << "Total nilai stok: Rp" << maxNilai << endl;
     }
 }
