@@ -82,7 +82,7 @@ int nbToko(listToko L);
 int nbProduk(listProduk LP);
 
 int totalNilaiStok(listProduk LP);
-adrToko findTokoStokTertinggi(listToko L, long long &maxNilai);
+adrToko findTokoStokTertinggi(listToko L, int &maxNilai);
 void printTokoStokTertinggi(listToko L);
 
 
