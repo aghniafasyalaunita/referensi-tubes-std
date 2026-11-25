@@ -122,7 +122,7 @@ void deleteFirstProduk(listProduk &LP, adrProduk &P){
 void deleteLastProduk(listProduk &LP, adrProduk &P){
     if (isEmptyProduk(LP)){
         P = nullptr;
-    } else if (L.first == L.last) {
+    } else if (LP.first == LP.last) {
         P = LP.first;
         LP.first = nullptr;
         LP.last = nullptr;
