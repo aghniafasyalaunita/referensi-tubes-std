@@ -119,6 +119,7 @@ void deleteFirstProduk(listProduk &LP, adrProduk &P){
         LP.first->prev = nullptr;
     }
 };
+
 void deleteLastProduk(listProduk &LP, adrProduk &P){
     if (isEmptyProduk(LP)){
         P = nullptr;
@@ -196,15 +197,15 @@ adrProduk findProduk(listProduk LP, string kode){
 adrProduk findProdukMarketplace(listToko L, string kode, adrToko &T){
     adrProduk P;
     T = L.first;
-    while (T != Nil) {
+    while (T != nullptr) {
         P = findProduk(T->lProduk, kode);
-        if (P != Nil) {
+        if (P != nullptr) {
             return P;
         }
         T = T->next;
     }
-    T = Nil;
-    return Nil;
+    T = nullptr;
+    return nullptr;
 };
 
 void printToko(adrToko T){
@@ -215,20 +216,20 @@ void printProduk(adrProduk P){
 }
 void printListProduk(listProduk LP){
      adrProduk P = LP.first;
-    if (P == Nil) {
+    if (P == nullptr) {
         cout << "   (belum ada produk)" << endl;
     }
-    while (P != Nil) {
+    while (P != nullptr) {
         printProduk(P);
         P = P->next;
     }
 }
 void printAll(listToko L){
     adrToko T = L.first;
-    if (T == Nil) {
+    if (T == nullptr) {
         cout << "Marketplace masih kosong." << endl;
     }
-    while (T != Nil) {
+    while (T != nullptr) {
         printToko(T);
         printListProduk(T->lProduk);
         T = T->next;
