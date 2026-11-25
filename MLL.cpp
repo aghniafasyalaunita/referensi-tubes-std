@@ -49,7 +49,7 @@ void insertLastToko(listToko &L, adrToko P){
         L.first = P;
         L.last = P;
     } else {
-        P->prev = L.last->next;
+        P->prev = L.last;
         L.last->next = P;
         L.last = P;
     }
@@ -59,7 +59,6 @@ void insertLastProduk(listProduk &LP, adrProduk P){
         LP.first = P;
         LP.last = P;
     } else {
-       P = LP.last;
        P->prev = LP.last;
        LP.last->next = P;
        LP.last = P;
@@ -181,6 +180,7 @@ adrToko findToko(listToko L, string idToko){
         if (P->info.idToko == idToko){
             found = P;
         }
+        P = P->next;
     }
     return found;
 }
@@ -191,6 +191,8 @@ adrProduk findProduk(listProduk LP, string kode){
         if (P->info.kode == kode){
             found = P;
         }
+
+        P = P->next;
     }
     return found;
 };
@@ -237,11 +239,11 @@ void printAll(listToko L){
 }
 
 
-long long totalNilaiStok(listProduk LP){
-    long long total = 0;
+int totalNilaiStok(listProduk LP){
+    int total = 0;
     adrProduk P = LP.first;
     while (P != nullptr){
-        total += (long long)P->info.harga * P->info.stok;
+        total += (int)P->info.harga * P->info.stok;
         P = P->next;
     }
     return total;
