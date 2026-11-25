@@ -274,3 +274,17 @@ void printTokoStokTertinggi(listToko L){
         cout << "Total nilai stok: Rp" << maxNilai << endl;
     }
 }
+
+int nbToko(listToko L){
+    int n = 0;
+    adrToko T = L.first;
+    while (T != nullptr){ n++; T = T->next; }
+    return n;
+}
+
+int nbProduk(listProduk LP){
+    int n = 0;
+    adrProduk P = LP.first;
+    while (P != nullptr){ n++; P = P->next; }
+    return n;
+}
