@@ -77,5 +77,9 @@ void printAll(listToko L);
 int nbToko(listToko L);
 int nbProduk(listProduk LP);
 
+int totalNilaiStok(listProduk LP);
+adrToko findTokoStokTertinggi(listToko L, long long &maxNilai);
+void printTokoStokTertinggi(listToko L);
+
 
 #endif // MLL_H_INCLUDED
