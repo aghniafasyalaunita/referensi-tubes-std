@@ -178,23 +178,23 @@ adrToko findToko(listToko L, string idToko){
     P = L.first;
     while (P!=nullptr){
         if (P->info.idToko == idToko){
-            found = P;
+            return P;
         }
         P = P->next;
     }
-    return found;
+    return nullptr;
 }
 adrProduk findProduk(listProduk LP, string kode){
     adrProduk P, found;
     P = LP.first;
     while (P!=nullptr){
         if (P->info.kode == kode){
-            found = P;
+            return P;
         }
 
         P = P->next;
     }
-    return found;
+    return nullptr;
 };
 adrProduk findProdukMarketplace(listToko L, string kode, adrToko &T){
     adrProduk P;
@@ -243,7 +243,7 @@ int totalNilaiStok(listProduk LP){
     int total = 0;
     adrProduk P = LP.first;
     while (P != nullptr){
-        total += (int)P->info.harga * P->info.stok;
+        total += P->info.harga * P->info.stok;
         P = P->next;
     }
     return total;
